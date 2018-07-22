@@ -16,6 +16,10 @@ commands are available to your shell.
 
 Read `racket koans/all.rkt` to see suggested reading order.
 
+To practice, open a topic file and make all tests pass. Often times
+`"?"` will mark where you are expected to write an answer.
+
+
 ## Contributing
 
 It's too early to formalize a procedure, but I am happy and grateful
