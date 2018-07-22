@@ -8,4 +8,5 @@
     "conditionals.rkt"
     "bindings.rkt"
     "functions.rkt"
-    "numbers.rkt")
+    "numbers.rkt"
+    "characters.rkt")
