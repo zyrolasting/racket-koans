@@ -1,7 +1,8 @@
 #lang racket/base
 
-(require rackunit
-         (for-syntax racket/base syntax/parse))
+(require
+  rackunit
+  (for-syntax racket/base syntax/parse))
 
 ; `syntax` creates a syntax object
 (check-equal? (syntax? (syntax A)) "true")
@@ -58,10 +59,10 @@
 
 (define-syntax (count-args2 stx)
   (syntax-parse stx
-   [(?fn ?arg* ...)
-    (define args-list (syntax-e #'(?fn ?arg* ...)))
-    (define num-args (length args-list))
-    #`#,num-args]))
+    [(?fn ?arg* ...)
+     (define args-list (syntax-e #'(?fn ?arg* ...)))
+     (define num-args (length args-list))
+     #`#,num-args]))
 
 (check-equal? (count-args2 'A) "there is an error in the definition of `count-args2`")
 (check-equal? (count-args2 a b c d) 4)
@@ -71,20 +72,21 @@
 
 (define-syntax (check-all-equal? stx)
   (syntax-parse stx
-   [(_)
-    #'(void)]
-   [(_ ?e0 ?e1)
-    #'(check-equal? "?e0" "?e1")]
-   [(_ [?e0* ?e1*] ...)
-    #'(begin
-        (check-equal? ?e0* ?e1*) ...)]))
+    [(_)
+     #'(void)]
+    [(_ ?e0 ?e1)
+     #'(check-equal? "?e0" "?e1")]
+    [(_ [?e0* ?e1*] ...)
+     #'(begin
+         (check-equal? ?e0* ?e1*) ...)]))
 
 (check-all-equal?)
 (check-all-equal? 2 0)
-(check-all-equal? [2 "there is an error in the definition of `check-all-equal?`"]
-                  [3 3]
-                  ['A 'A]
-                  ["hello" "hello"])
+(check-all-equal?
+  [2 "there is an error in the definition of `check-all-equal?`"]
+  [3 3]
+  ['A 'A]
+  ["hello" "hello"])
 
 ; For more:
 ; http://docs.racket-lang.org/reference/syntax-model.html
