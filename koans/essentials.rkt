@@ -6,7 +6,7 @@
 
 ; define binds an identifier to a value
 (define foo 3)
-(check-equal? foo 1)
+(check-equal? foo "?")
 
 ; Racket only prohibits ()[]{}",'`;#|\ characters in identifiers.
 (define 2&--????++ "This identifier is okay.")
@@ -30,13 +30,13 @@
 
 ; Additional identifiers specify positional parameters.
 (define (add-two-numbers a b) (+ a b))
-(check-equal? (add-two-numbers 1 1) 3)
+(check-equal? (add-two-numbers 1 1) "?")
 
 ; As expected, you can call functions and use what they return as arguments.
 ; Argument expressions are evaluated from left to right.
 (check-equal?
   (add-two-numbers (add-two-numbers 1 1) 1)
-  2)
+  "?")
 
 ; Racket, being in the Lisp family, applies special rules to some forms
 ; For example, conditionals like `if` are not evaluated exactly like the
@@ -54,9 +54,9 @@
 ; makes a function call and a special form look alike.
 (check-equal?
   (if (> 2 1) "True: 2 is > 1" "False: 2 <= 1")
-  "")
+  "?")
 
 
 ; Racket allows you to switch up bracket styles freely using {}, [] or () pairs,
 ; but this should only be done to respect conventions that make code more legibile.
-[check-equal? {add-two-numbers 99 1} (* 10 9)]
+[check-equal? {add-two-numbers 99 1} (* 10 "?")]
