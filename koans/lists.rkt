@@ -24,3 +24,13 @@
 (check-eqv?
   (counter-matches-element thousand 1)
   1001)
+
+
+; Transform `thousand` into 'only-punc', which is a list of
+; characters such that every element matches char-punctuation?
+(define only-punc "?")
+(check-true
+  (and
+    (foldl (lambda (e r) (and e r)) #t
+      (map char-punctuation? only-punc))
+    (eqv? (length only-punc) 32)))
