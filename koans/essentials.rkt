@@ -8,9 +8,13 @@
 (define foo 3)
 (check-equal? foo "?")
 
-; Racket only prohibits ()[]{}",'`;#|\ characters in identifiers.
+; Racket only prohibits ()[]{}",'`;#|\ characters in identifiers ...
 (define 2&--????++ "This identifier is okay.")
 (check-equal? 2&--????++ "Yeah, really.")
+
+; ... unless the identifier is surrounded in pipes. Then, anything goes.
+(define |()[]{}",'`;#|\| "This identifier is okay too")
+(check-equal? |()[]{}",'`;#|\| "The empty identifier is ||")
 
 ; Whitespace between meaningful tokens are ignored, but be sure to use
 ; common sense and consistent indentation.
