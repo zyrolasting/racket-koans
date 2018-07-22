@@ -10,4 +10,5 @@
     "functions.rkt"
     "numbers.rkt"
     "characters.rkt"
-    "lists.rkt")
+    "lists.rkt"
+    "syntax.rkt")
