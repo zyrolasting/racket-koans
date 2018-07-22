@@ -28,6 +28,11 @@
 ; Don't forget that conditionals return values. There may be gotchas.
 (check-equal? (or (and #f #t) (and #t (or "nah" #f))) "?")
 
+; You may negate results with `not`.
+(check-equal? (not #f) "?")
+(check-equal? (not #t) "?")
+(check-equal? (not "nah") "?")
+
 ; The (cond) form evaluates tests in sequence, and will only evaluate the
 ; expressions that follow the first test that results in #t. The (else)
 ; clause can be used in a (cond) to handle a default case.
