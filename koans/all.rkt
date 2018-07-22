@@ -6,4 +6,5 @@
     "essentials.rkt"
     "booleans.rkt"
     "conditionals.rkt"
+    "bindings.rkt"
     "numbers.rkt")
