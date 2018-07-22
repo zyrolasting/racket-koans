@@ -16,10 +16,10 @@
   "?"
   "One binding can shadow another")
 
-; `define`'s rules might end up a little constraining.
+; You need one `define` for every new binding. This can get old.
 (define (defined-function-defines-so-many-defines-with-define-make-it-stop)
-  (define a 0) ; 1. all defines must appear at the start of a function definiton.
-  (define b 1) ; 2. You must write a new (define) for every new binding.
+  (define a 0)
+  (define b 1)
   (define c 2)
   (define d 3)
   (+ a b c d))
