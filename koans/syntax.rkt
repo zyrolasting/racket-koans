@@ -87,7 +87,3 @@
   [3 3]
   ['A 'A]
   ["hello" "hello"])
-
-; For more:
-; http://docs.racket-lang.org/reference/syntax-model.html
-; 
