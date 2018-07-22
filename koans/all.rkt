@@ -9,4 +9,5 @@
     "bindings.rkt"
     "functions.rkt"
     "numbers.rkt"
-    "characters.rkt")
+    "characters.rkt"
+    "lists.rkt")
