@@ -5,4 +5,5 @@
 (require
     "essentials.rkt"
     "booleans.rkt"
+    "conditionals.rkt"
     "numbers.rkt")
