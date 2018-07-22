@@ -14,7 +14,7 @@ commands are available to your shell.
 * Run `racket koans/<topic>.rkt` to run tests for a topic.
 * Run `racket koans/all.rkt` to run all tests.
 
-Read `racket koans/all.rkt` to see suggested reading order.
+Read `koans/all.rkt` to see suggested reading order.
 
 To practice, open a topic file and make all tests pass. Often times
 `"?"` will mark where you are expected to write an answer.
