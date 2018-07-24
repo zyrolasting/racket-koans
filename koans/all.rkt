@@ -10,5 +10,6 @@
     "procedures.rkt"
     "numbers.rkt"
     "characters.rkt"
+    "strings.rkt"
     "lists.rkt"
     "syntax.rkt")
