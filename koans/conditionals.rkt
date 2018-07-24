@@ -11,7 +11,7 @@
   "?")
 
 ; Given how 'if' is evaluated, does anything happen to 'counter'?
-; Reflect on how using `if` differs from calling a function.
+; Reflect on how using `if` differs from applying a procedure.
 (check-equal? counter "?")
 
 ; Logical operators condense related tests and support short circuiting.
