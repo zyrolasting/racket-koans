@@ -25,18 +25,20 @@
           "over"
           )
 
-; define can be used to create functions. The first identifier
-; in the list after `define` is the function's name.
+; define can be used to create functions (Or "procedures", to follow the docs).
+; The first identifier in the list after `define` is the procedure's name.
 (define (my-func) "Hello, Racket!")
 
-; You call a function by writing an expression leading with the function's identifier.
+; You call a procedure by writing an expression leading with the procedure's identifier.
+; The value resulting from evaluating the last expression in a procedure's
+; body gets returned to the caller.
 (check-equal? (my-func) "Hello, World!")
 
 ; Additional identifiers specify positional parameters.
 (define (add-two-numbers a b) (+ a b))
 (check-equal? (add-two-numbers 1 1) "?")
 
-; As expected, you can call functions and use what they return as arguments.
+; As expected, you can call procedures and use what they return as arguments.
 ; Argument expressions are evaluated from left to right.
 (check-equal?
   (add-two-numbers (add-two-numbers 1 1) 1)
@@ -44,7 +46,7 @@
 
 ; Racket, being in the Lisp family, applies special rules to some forms
 ; For example, conditionals like `if` are not evaluated exactly like the
-; function call above.
+; procedure call above.
 ;
 ; (if <test-expr> <expr-if-true> <expr-if-false>)
 ;
@@ -54,8 +56,8 @@
 ; matching expression.
 ;
 ; We will cover more "special rules" as we go. The fundamental point is that you
-; should not assume everything behaves like a function call just because the syntax
-; makes a function call and a special form look alike.
+; should not assume everything behaves like a procedure call just because the syntax
+; makes a procedure call and a special form look alike.
 (check-equal?
   (if (> 2 1) "True: 2 is > 1" "False: 2 <= 1")
   "?")

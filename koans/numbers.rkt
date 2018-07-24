@@ -2,7 +2,7 @@
 
 (require rackunit)
 
-; Arithmetic uses functions. The resulting forms are in prefix notation.
+; Arithmetic procedures resemble prefix notation.
 (check-equal? (+ 1 0) 2)
 (check-equal? (* 1 0) 1)
 (check-equal? (/ 4 2) 1)
@@ -11,7 +11,7 @@
 
 ; Number types are carefully categorized in Racket. We've used equal? tests via rackunit
 ; for everything leading up to now, but that's not the whole story. Racket provides
-; several functions to test for equality. It will take practice to understand
+; several procedures to test for equality. It will take practice to understand
 ; the nuances, but just know that in Lisp-family languages you must think
 ; carefully about the context in which you consider two values indistinguishable,
 ; lest you get unexpected results.

@@ -7,7 +7,7 @@
     "booleans.rkt"
     "conditionals.rkt"
     "bindings.rkt"
-    "functions.rkt"
+    "procedures.rkt"
     "numbers.rkt"
     "characters.rkt"
     "lists.rkt"
