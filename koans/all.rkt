@@ -3,13 +3,13 @@
 ;; Tests are in suggested reading order.
 
 (require
-    "essentials.rkt"
-    "booleans.rkt"
-    "conditionals.rkt"
-    "bindings.rkt"
-    "procedures.rkt"
-    "numbers.rkt"
-    "characters.rkt"
-    "strings.rkt"
-    "lists.rkt"
-    "syntax.rkt")
+  "essentials.rkt"
+  "booleans.rkt"
+  "conditionals.rkt"
+  "bindings.rkt"
+  "procedures.rkt"
+  "numbers.rkt"
+  "characters.rkt"
+  "strings.rkt"
+  "lists.rkt"
+  "syntax.rkt")

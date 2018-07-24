@@ -10,10 +10,10 @@
 (check-equal? (immutable? (string-copy (string))) "?")
 
 (define dotphabet
-    (build-string 26 (lambda (i)
-        (if (even? i)
-            (integer->char (+ 65 i))
-            #\.))))
+  (build-string 26 (lambda (i)
+    (if (even? i)
+      (integer->char (+ 65 i))
+      #\.))))
 
 ; When test results guide you, these are gimmes.
 (check-equal? (string-ref dotphabet 8) "?")
