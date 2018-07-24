@@ -3,8 +3,8 @@ Learn the Racket language by fixing unit tests related to language features.
 Use this project if you are just starting out and want isolated exercises
 to practice taking baby-steps before working on larger projects.
 
-Test files are named after the topics they cover, and execute in an
-order based loosely on [The Racket Guide](https://docs.racket-lang.org/guide/).
+Test files are named after the topics they cover. When all tests run, the
+test topic files will execute in an order based loosely on [The Racket Guide](https://docs.racket-lang.org/guide/).
 
 ## Usage
 
@@ -16,8 +16,9 @@ commands are available to your shell.
 
 Read `koans/all.rkt` to see suggested reading order.
 
-To practice, open a topic file and make all tests pass. Often times
-`"?"` will mark where you are expected to write an answer.
+To practice, open a topic file and make all tests pass. `"?"` will
+mark where you are expected to write an answer. Other times
+tests will be written with intentionally incorrect code.
 
 
 ## Contributing
