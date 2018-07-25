@@ -12,4 +12,5 @@
   "characters.rkt"
   "strings.rkt"
   "lists.rkt"
+  "structs.rkt"
   "syntax.rkt")
