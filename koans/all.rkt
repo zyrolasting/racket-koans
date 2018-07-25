@@ -13,4 +13,5 @@
   "strings.rkt"
   "lists.rkt"
   "structs.rkt"
+  "modules.rkt"
   "syntax.rkt")
