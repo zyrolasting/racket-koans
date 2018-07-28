@@ -65,3 +65,20 @@
 
 (check-true
   (and-p my-ceil-valid? '(-0.1 0.0 0.1 -2/314 9/781 4.1e3)))
+
+; Read this carefully: Write a procedure `my-join` that joins at least
+; one integer together into a single string with an optional delimiter
+; character that defaults to a single blank space as the first argument.
+; Have a contract enforce these precise restrictions. Hint: You will need 'case->'
+
+(define (my-join) "?")
+
+; Keep these checks as is.
+(check-equal? (my-join #\- 1 2 3) "1-2-3")
+(check-equal? (my-join #\space 1 2 3) "1 2 3")
+(check-equal? (my-join 1 2 3) "1 2 3")
+(check-equal? (my-join #\space 1) "1")
+(check-equal? (my-join 1) "1")
+(check-exn (λ () (my-join ",")))
+(check-exn (λ () (my-join #\space "a" "b")))
+(check-exn (λ () (my-join "," 0.1 9)))
