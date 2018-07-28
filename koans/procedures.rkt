@@ -1,4 +1,4 @@
-#lang racket/base
+#lang racket
 
 (require rackunit)
 
@@ -26,3 +26,42 @@
 ; Created procedures remember the bindings leading up to them.
 (check-equal? (returns-string) "?")
 (check-equal? (returns-number) "?")
+
+; Create a procedure that returns a new square of an integer
+; i each time it is called, starting from i = 0.
+(define (next-square) "?")
+
+(define (check-square n)
+  (let ([expected (* n n)] [actual (next-square)])
+    (if (eqv? expected actual)
+      (if (< n 100)
+        (check-square (add1 n))
+        (void))
+      (fail (format "next-square did not return the expected square of ~a" n)))))
+(check-square 0)
+
+
+; Write a version of the ceiling function called `my-ceil` with a contract
+; that allows all inexact numbers except those that have no exact representation,
+; and that will always return an exact number.
+(define (my-ceil n) "?")
+
+; The below instrumentation checks your work.
+(define (my-ceil-valid? n)
+  (with-handlers ([exn:fail:contract? (lambda (exn) #f)])
+    (eqv? (my-ceil n) (exact-ceiling n))))
+
+(define (and-p pred lst)
+  (if (null? lst)
+    #t
+    (and
+      (pred (first lst))
+      (and-p pred (rest lst)))))
+
+(check-true
+  (and-p
+    (lambda (n) (not (my-ceil-valid? n)))
+    '(+inf.f -inf.f -inf.0 +inf.0 +nan.f -nan.f -nan.0 +nan.0)))
+
+(check-true
+  (and-p my-ceil-valid? '(-0.1 0.0 0.1 -2/314 9/781 4.1e3)))
