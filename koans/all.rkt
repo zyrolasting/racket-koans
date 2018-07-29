@@ -15,4 +15,5 @@
   "structs.rkt"
   "modules.rkt"
   "io.rkt"
+  "exceptions.rkt"
   "syntax.rkt")
