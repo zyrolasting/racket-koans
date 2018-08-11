@@ -2,13 +2,13 @@
 
 (require racket/undefined rackunit)
 
-;; Here we practice exceptions, prompts, aborts and continuations.
-;;
-;; Following exercises:
-;;
-;; 1. Producing contract violation and custom exceptions
-;; 2. Catching exceptions
-;; 3. Prompts, aborts and continuations
+;;; Here we practice exceptions, prompts, aborts and continuations.
+;;;
+;;; Following exercises:
+;;;
+;;; 1. Producing contract violation and custom exceptions
+;;; 2. Catching exceptions
+;;; 3. Prompts, aborts and continuations
 
 
 ;; 1. Producing contract violation and custom exceptions
@@ -76,16 +76,16 @@
 
 ;; 3. Prompts, aborts and continuations
 
-#|
-Exceptions are powered by an underlying mechanism of prompts, aborts and
-continuations. If we take a simplified analogy with Algol family languages,
-'prompts' in use are a generalization of 'try..catch', 'aborts' are a
-generalization of 'throw', and continuations are a generalization of some WIP
-state of computation. These three concepts power the ability to divide up
-Racket's work, then jump to the dividing lines at the author's discretion.
 
-For helpful visual aids, see https://stackoverflow.com/a/29838823/394397
-|#
+;; Exceptions are powered by an underlying mechanism of prompts, aborts and
+;; continuations. If we take a simplified analogy with Algol family languages,
+;; 'prompts' in use are a generalization of 'try..catch', 'aborts' are a
+;; generalization of 'throw', and continuations are a generalization of some
+;; WIP state of computation. These three concepts power the ability to divide
+;; up Racket's work, then jump to the dividing lines at the author's
+;; discretion.
+;;
+;; For helpful visual aids, see https://stackoverflow.com/a/29838823/394397
 
 ;; Complete and then capture this foldl computation such
 ;; that you may apply it using only a list.

@@ -1,6 +1,6 @@
 #lang racket/base
 
-;; Tests are in suggested reading order.
+;;; Run this to run all koans. Tests are in suggested reading order.
 
 (require
   "essentials.rkt"

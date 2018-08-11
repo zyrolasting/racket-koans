@@ -3,7 +3,7 @@
 (require rackunit)
 
 
-; Produce a single struct that passes all assertions.
+;; Produce a single struct that passes all assertions.
 (let ([p "?"])
   (check-pred racketeer? p)
   (check-pred programmer? p)
