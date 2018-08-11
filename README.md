@@ -40,6 +40,18 @@ solution, please keep it to pedagogical discussions.
 I do ask that commit messages and PR titles make it clear what topics you are
 contributing toward to make history easier to scan.
 
+### Coding conventions
+
+You may ignore rules only when necessary.
+
+* Wrap at 80 columns.
+* 2-space indent.
+* Comment patterns
+    * Use a `;;;` prefix for file overview comments.
+    * Use a `;;` prefix for comments that are not inline with code.
+    * Use a `;` prefix for comments that are inline with code.
+    * Fill columns 1 to 80 `;` with two leading blank lines and one trailing blank line to divide sections.
+
 ## Current project goals
 
 * Better CLI usage for run all tests, or selected tests by topic. Support running tests automatically via file watching.
