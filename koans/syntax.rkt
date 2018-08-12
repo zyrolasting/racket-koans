@@ -2,7 +2,8 @@
 
 (require
   rackunit
-  (for-syntax racket/base syntax/parse))
+  (for-syntax racket/base syntax/parse)
+  syntax/macro-testing)
 
 
 ;; `syntax` creates a syntax object
@@ -65,8 +66,10 @@
      (define num-args (length args-list))
      #`#,num-args]))
 
-(check-equal? (count-args2 'A) "there is an error in the definition of `count-args2`")
-(check-equal? (count-args2 a b c d) 4)
+(check-not-exn (lambda ()
+  (convert-compile-time-error (let ()
+    (check-equal? (count-args2 'A) "there is an error in the definition of `count-args2`")
+    (check-equal? (count-args2 a b c d) 4)))))
 
 ;; `syntax-parse` is helpful for writing macros, and macros are helpful for
 ;; programming your programs.

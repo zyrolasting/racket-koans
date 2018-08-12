@@ -1,6 +1,9 @@
 #lang racket
 
-(require racket/undefined rackunit)
+(require
+  racket/undefined
+  rackunit
+  syntax/macro-testing)
 
 ;;; Here we practice exceptions, prompts, aborts and continuations.
 ;;;
@@ -33,16 +36,16 @@
 ;; the truth stays unearned.
 ;; When different, unwise Sneetches come to play,
 ;; an exception enters the fray.
-(define/contract
-  (-> (listof sneetch?) boolean?)
-  (mingle sneetches lesson-learned?) "?")
+(define/contract (mingle sneetches lesson-learned?)
+  (-> (listof sneetch?) boolean? boolean?)
+   "?")
 
 (define/contract (only-starred sneetches)
-  (lambda () "?" #\f)
+  (-> any/c any) ; ?
   (filter sneetch-starred? sneetches))
 
 (define/contract (only-unstarred sneetches)
-  (lambda () "?" #\f)
+  (-> any/c any) ; ?
   (filter (lambda (s) (not (sneetch-starred? s))) sneetches))
 
 
@@ -50,14 +53,16 @@
 ;; of creatures beyond the pale.
 ;; But when written just outside of main(),
 ;; it doesn't feel quite the same.
-(let*
-  ([sneetches (map sneetch '(#t #f #t #f #f #t #t #f))]
-  [originally-starred (only-starred sneetches)])
-    (check-exn exn:fail:racism? (lambda () (mingle sneetches #f)))
-    (check-exn exn:fail:contract? (lambda () (convert-sneetches sneetches)))
-    (check-not-exn (lambda () (convert-sneetches (only-unstarred sneetches) #t)))
-    (check-exn exn:fail:contract? (lambda () (convert-sneetches originally-starred)))
-    (check-true (mingle sneetches #t)))
+(check-not-exn (lambda ()
+  (convert-compile-time-error (let*
+    ([sneetches (map sneetch '(#t #f #t #f #f #t #t #f))]
+    [originally-starred (only-starred sneetches)])
+      (check-exn exn:fail:racism? (lambda () (mingle sneetches #f)))
+      (check-exn exn:fail:contract? (lambda () (convert-sneetches sneetches)))
+      (check-not-exn (lambda () (convert-sneetches (only-unstarred sneetches) #t)))
+      (check-exn exn:fail:contract? (lambda () (convert-sneetches originally-starred)))
+      (check-true (mingle sneetches #t)))))
+  "Did you define all of the symbols you needed?")
 
 
 ;; Alright, that's enough of that.
@@ -68,11 +73,12 @@
 (define (loose-div n d)
   (/ n d))
 
-(check-eqv? (loose-div "8" 2) 4)
-(check-eqv? (loose-div 0 0) +inf.0)
-(check-eqv? (loose-div -0 0) -inf.0)
-(check-eqv? (loose-div "cannot" "divide") +nan.0)
-
+(check-not-exn (lambda ()
+  (check-eqv? (loose-div "8" 2) 4)
+  (check-eqv? (loose-div 0 0) +inf.0)
+  (check-eqv? (loose-div -0 0) -inf.0)
+  (check-eqv? (loose-div "cannot" "divide") +nan.0))
+  "loose-div should be handling exceptions")
 
 ;; 3. Prompts, aborts and continuations
 
@@ -89,8 +95,12 @@
 
 ;; Complete and then capture this foldl computation such
 ;; that you may apply it using only a list.
-(define *captured-fold* (void))
+(define *captured-fold*
+  (lambda (l) (fail "Redefine *captured-fold* to pass the test.")))
+
 (call/cc
-  (foldl "?" "?" '()))
+  (lambda (k)
+    (foldl (lambda (a b) "?") "?" '())
+    (void)))
 
 (check-eqv? (*captured-fold* '(1 2 3)) 6)

@@ -16,9 +16,10 @@ commands are available to your shell.
 
 Read `koans/all.rkt` to see suggested reading order.
 
-To practice, open a topic file and make all tests pass. `"?"` will
-mark where you are expected to write an answer. Other times
-tests will be written with intentionally incorrect code.
+To practice, open a topic file and make all tests pass.
+Intentionally places `?` characters will mark where you
+are expected to write an answer. Other times tests will
+be written with intentionally incorrect code.
 
 
 ## Contributing
