@@ -67,4 +67,4 @@
 ;; Racket allows you to switch up bracket styles freely using
 ;; {}, [] or () pairs, but this should only be done to respect
 ;; conventions that make code more legibile.
-[check-equal? {add-two-numbers 99 1} (* 10 "?")]
+[check-equal? {add-two-numbers 99 1} (* 10 10)]

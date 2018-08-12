@@ -31,25 +31,22 @@
 
 
 ;; More equality predicates will also start appearing in tests.
-;; To shake things up, from now on all tests may intentionally
-;; use the wrong predicate. Remember that if your solution looks
-;; right but your tests keep failing.
-;;
 ;; See https://docs.racket-lang.org/rackunit/api.html#%28part._.Checks%29
 (check-not-eqv? 3 3.0)
 
 ;; Using only 'exact?' and 'inexact?', categorize these numbers.
-(check-pred "?" #i0)
-(check-pred "?" -1)
-(check-pred "?" 1)
-(check-pred "?" #i#b100)
-(check-pred "?" 999999999999999)
-(check-pred "?" 2/3)
-(check-pred "?" #e2/3)
-(check-pred "?" #i0)
-(check-pred "?" 1/2+8/9i)
-(check-pred "?" 0.1)
-(check-pred "?" (34 * 0.1))
-(check-pred "?" #e.23e+42)
-(check-pred "?" -inf.0)
-(check-pred "?" +nan.0)
+(define (replaceme x) #f)
+(check-pred replaceme #i0)
+(check-pred replaceme -1)
+(check-pred replaceme 1)
+(check-pred replaceme #i#b100)
+(check-pred replaceme 999999999999999)
+(check-pred replaceme 2/3)
+(check-pred replaceme #e2/3)
+(check-pred replaceme #i0)
+(check-pred replaceme 1/2+8/9i)
+(check-pred replaceme 0.1)
+(check-pred replaceme (* 34 0.1))
+(check-pred replaceme #e.23e+42)
+(check-pred replaceme -inf.0)
+(check-pred replaceme +nan.0)

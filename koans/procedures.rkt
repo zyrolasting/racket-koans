@@ -73,12 +73,18 @@
 ;; need 'case->'
 (define (my-join) "?")
 
-;; Keep these checks as is.
-(check-equal? (my-join #\- 1 2 3) "1-2-3")
-(check-equal? (my-join #\space 1 2 3) "1 2 3")
-(check-equal? (my-join 1 2 3) "1 2 3")
-(check-equal? (my-join #\space 1) "1")
-(check-equal? (my-join 1) "1")
-(check-exn (λ () (my-join ",")))
-(check-exn (λ () (my-join #\space "a" "b")))
-(check-exn (λ () (my-join "," 0.1 9)))
+(let ([arity (procedure-arity my-join)])
+  (if
+    (and
+      (arity-at-least? arity)
+      (eqv? arity-at-least-value 1))
+    (begin
+       (check-equal? (my-join #\- 1 2 3) "1-2-3")
+       (check-equal? (my-join #\space 1 2 3) "1 2 3")
+       (check-equal? (my-join 1 2 3) "1 2 3")
+       (check-equal? (my-join #\space 1) "1")
+       (check-equal? (my-join 1) "1")
+       (check-exn (λ () (my-join ",")))
+       (check-exn (λ () (my-join #\space "a" "b")))
+       (check-exn (λ () (my-join "," 0.1 9))))
+    (fail "Double check your signature of my-join")))

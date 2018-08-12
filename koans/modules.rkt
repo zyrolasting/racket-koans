@@ -1,6 +1,8 @@
 #lang racket/base
 
-(require rackunit)
+(require
+  rackunit
+  syntax/macro-testing)
 
 
 ;;; All .rkt files you have seen are modules and the instructions within
@@ -10,8 +12,12 @@
 ;;; https://docs.racket-lang.org/guide/Module_Syntax.html
 
 
-(module "?" "?" "?")
+(module meta racket (define (submod-fn) "?"))
 (require 'meta)
-(check-equal?
-  (submod-fn)
-  "From the submodule")
+
+(check-not-exn (lambda ()
+  (convert-compile-time-error
+    (check-equal?
+      (submod-fn)
+      "From the submodule")))
+  "Did you provide the submodule function?")
