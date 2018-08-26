@@ -17,4 +17,5 @@
   "io.rkt"
   "exceptions.rkt"
   "iterations.rkt"
+  "pattern-matching.rkt"
   "syntax.rkt")
