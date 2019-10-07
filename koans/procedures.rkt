@@ -84,6 +84,7 @@
        (check-equal? (my-join 1 2 3) "1 2 3")
        (check-equal? (my-join #\space 1) "1")
        (check-equal? (my-join 1) "1")
+       (check-exn (λ () (my-join #\?)))
        (check-exn (λ () (my-join ",")))
        (check-exn (λ () (my-join #\space "a" "b")))
        (check-exn (λ () (my-join "," 0.1 9))))
