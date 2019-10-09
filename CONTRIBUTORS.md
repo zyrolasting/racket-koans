@@ -10,3 +10,5 @@ Names are sorted alphabetically.
 * [Philip McGrath](https://philipmcgrath.com) (@LiberalArtist)
     * Offered draft implementation of racket-koans language
     * Contract authorship assistance
+* @shhyou
+    * Fixed gap in `my-join` coverage
